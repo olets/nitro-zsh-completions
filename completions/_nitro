@@ -1,0 +1,136 @@
+#compdef nitro
+# ------------------------------------------------------------------------------
+#  Completion script for Nitro (https://getnitro.sh/).
+#
+# Copyright (c) 2021 Henry Bley-Vroman - https://github.com/olets
+# All rights reserved.
+#
+# Licensed under CC BY-NC-SA 4.0 with a human rights condition from
+# Hippocratic License 2.1. See the LICENSE file for the full text. Persons
+# interested in using or adapting this work for commercial purposes should
+# contact the author.
+# ------------------------------------------------------------------------------
+
+
+local curcontext="$curcontext" state line ret=1
+
+_arguments -C -A "-v" -A "--version" \
+    '(- 1 *)'{-v,--version}'[display version information]' \
+    '1: :->cmds' \
+    '*:: :->args' && ret=0
+
+case $state in
+	cmds)
+		_values "nitro command" \
+			"help[Install the gems specified by the Gemfile or Gemfile.lock]" \
+      "alias[Add an alias to a site.]" \
+      "apply[Ensures all resources exist and applies any config changes to them.]" \
+      "blackfire[Enables and disables Blackfire for a site]" \
+      "bridge[Temporarily shares a Nitro site on a local network]" \
+      "clean[Removes any unused containers.]" \
+      "composer[Runs Composer commands.]" \
+      "container[Work with containers.]" \
+      "context[Shows configuration information.]" \
+      "craft[Runs Craft console commands.]" \
+      "create[Initializes and adds a new site.]" \
+      "db[Work with databases.]" \
+      "destroy[Destroys all resources (networks, containers, and volumes).]" \
+      "disable[Disables a Nitro service.]" \
+      "edit[Opens your Nitro configuration file in your default editor for quickly making changes.]" \
+      "enable[Enables a Nitro service.]" \
+      "extensions[Add additional PHP extensions for a site.]" \
+      "hosts[Modifies your hosts file.]" \
+      "iniset[Change PHP settings for a site.]" \
+      "init[Initializes the Nitro environment.]" \
+      "logs[Displays all of your container logs.]" \
+      "npm[Run npm commands using the current directory in a container.]" \
+      "php[Execute a PHP command in a site’s container.]" \
+      "portcheck[Check if a port is available on your machine.]" \
+      "queue[Runs a Craft queue worker.]" \
+      "remove[Removes a site.]" \
+      "restart[Restarts all containers.]" \
+      "share[Allows you to share a local site.]" \
+      "ssh[Allows you to SSH into a container.]" \
+      "start[Starts all containers.]" \
+      "stop[Stops all containers.]" \
+      "trust[Trust SSL certificates for a site.]" \
+      "update[Updates Nitro's containers.]" \
+      "validate[Validates Nitro's configuration.]" \
+      "version[Shows Nitro version information.]" \
+      "xoff[Disables Xdebug for a site.]" \
+      "xon[Enables Xdebug for a site.]"
+		ret=0
+		;;
+	args)
+		case $line[1] in
+      help)
+        _values "nitro help command" \
+          "apply" "blackfire"
+        ret=0
+        ;;
+      apply)
+				_arguments "(--skip-hosts)--skip-hosts[Skip]"
+        ret=0
+        ;;
+      blackfire)
+        _values "nitro blackfire command" \
+          "on[Enables Blackfire]" \
+          "off[Disables Blackfire]"
+        ret=0
+        ;;
+      context)
+        _arguments "(--yaml)--yaml[Shows the config file as YAML]"
+        ret=0
+        ;;
+      container)
+        _values "nitro container command" \
+          "new[Create a new custom container.]" \
+          "ssh[SSH into a custom container.]"
+        ret=0
+        ;;
+      db)
+        _values "nitro db command" \
+          "add[Adds a new database in the selected database engine.]" \
+          "backup[Backs up a database from the selected database engine.]" \
+          "import[Imports a database dump the selected database engine and name.]" \
+          "remove[Removes a database in the selected database engine.]" \
+          "ssh[Allows you to SSH into a database container.]"
+        ret=0
+        ;;
+      destroy)
+        _arguments "(--clean)--clean[Remove the configuration file after destroying the resources.]"
+        ret=0
+        ;;
+      hosts)
+        _values "nitro hosts command" \
+          "strings"
+        _arguments \
+          "(--hostnames)--hostnames[A comma-seperated list of hostnames to add.]" \
+          "(--preview)--preview[Preview the changes to the host file without applying them.]" \
+          "(--remove)--remove[A comma-seperated list of hostnames to remove.]"
+        ret=0
+        ;;
+      logs)
+        _arguments \
+          "(--follow)--follow[Follow log output (defaults to true).]" \
+          "(--since)--since[Show logs since timestamp (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes).]" \
+          "(--timestamps)--timestamps[Displays the timestamps in the logs.]"
+        ret=0
+        ;;
+      ssh)
+        _arguments \
+          "(--root)--root[SSH into a container as the root user.]"
+        ret=0
+        ;;
+    esac
+    ;;
+esac
+
+return ret
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
