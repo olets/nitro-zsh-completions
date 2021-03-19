@@ -2,6 +2,51 @@
 
 > zsh completions for https://github.com/craftcms/nitro
 
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [Uninstalling](#uninstalling)
+1. [Changelog](#changelog)
+1. [Contributing](#contributing)
+1. [License](#license)
+
+## Installation
+
+### Plugin
+
+You can install nitro-zsh-completions with a zsh plugin manager. Each has their own way of doing things. See your package manager's documentation or the [zsh plugin manager plugin installation procedures gist](https://gist.github.com/olets/06009589d7887617e061481e22cf5a4a). If you're new to zsh plugin management, at this writing zinit is a good choice for its popularity, frequent updates, and great performance.
+
+After adding the plugin to the manager, restart zsh:
+
+```shell
+exec zsh
+```
+
+### Manual
+
+Clone this repo and add `source path/to/nitro-zsh-completions.zsh` to your `.zshrc`. Then restart zsh:
+
+```shell
+exec zsh
+```
+
+## Usage
+
+In an interactive zsh terminal (ie on the command line) type `nitro`<kbd>TAB</kbd> to see subcommands and top level options, and `nitro <subcommand>`<kbd>TAB</kbd> to see sub-subcommands and subcommand options.
+
+## Uninstalling
+
+### Plugin
+
+Follow the standard uninstallation procedure for your manager.
+
+### Manual
+
+Remove the reference from your `.zshrc` and delete the nitro-zsh-completions directory.
+
+## Changelog
+
+See the [CHANGELOG](CHANGELOG.md) file.
+
 ## Contributing
 
 Thanks for your interest. Contributions are welcome!
