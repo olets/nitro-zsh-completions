@@ -1,4 +1,4 @@
-# nitro-zsh-completions
+# nitro-zsh-completions ![GitHub release (latest by date)](https://img.shields.io/github/v/release/olets/nitro-zsh-completions)
 
 > zsh completions for https://github.com/craftcms/nitro
 
