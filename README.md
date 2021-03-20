@@ -11,7 +11,7 @@
 
 ## Installation
 
-### Plugin
+### Plugin (recommended)
 
 You can install nitro-zsh-completions with a zsh plugin manager. Each has their own way of doing things. See your package manager's documentation or the [zsh plugin manager plugin installation procedures gist](https://gist.github.com/olets/06009589d7887617e061481e22cf5a4a). If you're new to zsh plugin management, at this writing zinit is a good choice for its popularity, frequent updates, and great performance.
 
@@ -29,6 +29,16 @@ Clone this repo and add `source path/to/nitro-zsh-completions.zsh` to your `.zsh
 exec zsh
 ```
 
+### Package
+
+nitro-zsh-completions is available on Homebrew. Run
+
+```
+brew install olets/tap/nitro-zsh-completions
+```
+
+and follow the post-install instructions logged to the terminal.
+
 ## Usage
 
 In an interactive zsh terminal (ie on the command line) type `nitro`<kbd>TAB</kbd> to see subcommands and top level options, and `nitro <subcommand>`<kbd>TAB</kbd> to see sub-subcommands and subcommand options.
@@ -42,6 +52,12 @@ Follow the standard uninstallation procedure for your manager.
 ### Manual
 
 Remove the reference from your `.zshrc` and delete the nitro-zsh-completions directory.
+
+### Package
+
+```shell
+brew uninstall --force nitro-zsh-completions
+```
 
 ## Changelog
 
